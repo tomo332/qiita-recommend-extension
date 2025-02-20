@@ -1,0 +1,18 @@
+{
+  "manifest_verssion": 3,
+  "name": "qiita-recommend",
+  "version": "1.0",
+  "description": "Qiitaおすすめ記事を表示",
+  "icons": {
+    "128": "icon.png"
+  },
+  "chrome_url_overrides": {
+    "newtab" : "newtab.html"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://qiita.com/api/v2/*"
+  ]
+}
