@@ -3,9 +3,6 @@
   "name": "qiita-recommend",
   "version": "1.0",
   "description": "Qiitaおすすめ記事を表示",
-  "icons": {
-    "128": "icon.png"
-  },
   "chrome_url_overrides": {
     "newtab" : "newtab.html"
   },
