@@ -35,5 +35,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       container.appendChild(articleElement);
     })
   }
+  renderArticles();
 
 });
