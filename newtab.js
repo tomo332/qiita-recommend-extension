@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       articleElement.classList.add("article");
       articleElement.innerHTML = `
         <h3 class="article-title">${article.title}</h3>
-        <p> いいね数: ${article.likes_count}</p> | <p>ストック数: ${article.stocks_count}</p>
+        <p> いいね数: ${article.likes_count}</p> <p>ストック数: ${article.stocks_count}</p>
         <a href="${article.url}" target="_blank" class="article-link" data-id="${article.id}">記事を読む</a>
       `;
       container.appendChild(articleElement);
