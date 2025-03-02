@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const storedDate = localStorage.getItem('storedDate');
     let articles;
     // 今日の日付と保存された日付が同じ場合はローカルストレージから記事を取得
-    if (storedDate == today) {
+    if (storedDate === today) {
       articles = JSON.parse(localStorage.getItem('articles'));
     } else {
       // 異なる場合はQiitaAPIから記事を取得
