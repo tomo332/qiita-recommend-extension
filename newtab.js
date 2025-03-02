@@ -45,8 +45,26 @@ document.addEventListener("DOMContentLoaded", async () => {
         <p> いいね数: ${article.likes_count}</p> <p>ストック数: ${article.stocks_count}</p>
         <a href="${article.url}" target="_blank" class="article-link" data-id="${article.id}">記事を読む</a>
       `;
+
+      // ローカルストレージから既読記事を取得
+      const readArticles = JSON.parse(localStorage.getItem('readArticles')) || [];
+      // 既読記事の色を変える
+      if (readArticles.includes(article.id)) {
+        articleElement.style.backgroundColor = "#d3d3d3";
+      }
+
       container.appendChild(articleElement);
-    })
+    });
+
+    // 記事リンクのクリックイベントを設定
+    // 記事をクリックしたらローカルストレージに保存
+    document.querySelectorAll('.article-link').forEach(link => {
+      link.addEventListener('click', () => {
+        const readArticles = JSON.parse(localStorage.getItem('readArticles')) || [];
+        readArticles.push(link.dataset.id);
+        localStorage.setItem('readArticles', JSON.stringify(readArticles));
+      });
+    });
   }
   renderArticles();
 
