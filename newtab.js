@@ -23,7 +23,20 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   //記事を表示
   const renderArticles = async () => {
-    const articles = await getArticles();
+    // 今日の日付を取得
+    const today = new Date().toISOString().split('T')[0];
+    //　ローカルストレージに保存された日付取得
+    const storedDate = localStorage.getItem('storedDate');
+    let articles;
+    // 今日の日付と保存された日付が同じ場合はローカルストレージから記事を取得
+    if (storedDate == today) {
+      articles = JSON.parse(localStorage.getItem('articles'));
+    } else {
+      // 異なる場合はQiitaAPIから記事を取得
+      articles = await getArticles();
+      localStorage.setItem('articles', JSON.stringify(articles));
+      localStorage.setItem('storedDate', today);
+    }
     articles.forEach(article => {
       const articleElement = document.createElement("div");
       articleElement.classList.add("article");
